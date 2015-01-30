@@ -3,7 +3,7 @@
 #Version 1.0.0
 
 echo "************ nfs & riofs requirements"
-apt-get install nfs-kernel-server build-essential gcc make automake autoconf libtool pkg-config intltool libglib2.0-dev libfuse-dev libxml2-dev libevent-dev libssl-dev
+apt-get install nfs-kernel-server build-essential gcc make automake autoconf libtool pkg-config intltool libglib2.0-dev libfuse-dev libxml2-dev libevent-dev libssl-dev haproxy
 
 echo "************ create a file system and folder on the elastic block store volume (disk)"
 mkfs -t ext4 /dev/xvdf
