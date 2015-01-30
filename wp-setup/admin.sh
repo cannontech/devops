@@ -2,8 +2,8 @@
 #GSN WP Host (admin) Setup
 #Version 1.0.0
 
-echo "************ nfs requirements"
-apt-get install nfs-kernel-server
+echo "************ nfs & riofs requirements"
+apt-get install nfs-kernel-server build-essential gcc make automake autoconf libtool pkg-config intltool libglib2.0-dev libfuse-dev libxml2-dev libevent-dev libssl-dev
 
 echo "************ create a file system and folder on the elastic block store volume (disk)"
 mkfs -t ext4 /dev/xvdf
@@ -55,3 +55,18 @@ mkdir /mnt/sharefs/gsn-scripts
 
 echo "************ restart nginx"
 service nginx reload
+
+#echo "************ clone riofs"
+#git clone https://github.com/skoobe/riofs.git
+#./autogen.sh
+#./configure
+#make
+#sudo make install
+
+#echo "************ install pip"
+apt-get install python-pip python-dev build-essential
+pip install --upgrade pip
+pip install --upgrade virtualenv
+ 
+#echo "************ install boto rsync"
+pip install boto_rsync
